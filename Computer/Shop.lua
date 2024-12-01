@@ -1,4 +1,5 @@
 local mon = { peripheral.find("monitor") }
+local chest = peripheral.find("minecraft:chest")
 
 local Out_Chest = peripheral.wrap("minecraft:chest_3")
 local chest_bal = peripheral.wrap("minecraft:chest_6")
@@ -26,13 +27,17 @@ end
 function LookForItem(item, amount)
     local chest = peripheral.find("minecraft:chest")
     for slot, item in pairs(chest.list()) do
-        print(("%d x %s in slot %d"):format(item.count, item.name, slot))
+        if item.name == "appel" then
+            if item.count == "32" then
+                
+            end 
+        end
     end
     
 end
 
 function Purchase_Apple()
-    LookForItem(appel, 32)
+    LookForItem("minecraft:apple", "32")
     Out_Chest.pullItems(peripheral.getName(chest_bal), 5)
     sleep(1)
     chest_item.pullItems(peripheral.getName(Out_Chest), 32)
